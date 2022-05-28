@@ -21,9 +21,11 @@ defmodule HairControlWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", HairControlWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", HairControlWeb do
+    pipe_through :api
+
+    post "/employees", EmployeesController, :create
+  end
 
   # Enables LiveDashboard only for development
   #
