@@ -25,6 +25,8 @@ defmodule HairControlWeb.Router do
     pipe_through :api
 
     post "/employees", EmployeesController, :create
+
+    post "/clients", ClientsController, :create
   end
 
   # Enables LiveDashboard only for development
