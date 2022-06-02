@@ -26,7 +26,7 @@ defmodule HairControlWeb.Router do
 
     post "/employees", EmployeesController, :create
 
-    post "/clients", ClientsController, :create
+    resources "/clients", ClientsController, only: [:create, :show]
   end
 
   # Enables LiveDashboard only for development

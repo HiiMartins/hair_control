@@ -25,4 +25,20 @@ defmodule HairControlWeb.ClientsView do
       }
     }
   end
+
+  def render("show.json", %{
+        client: %Client{
+          id: id,
+          name: name,
+          phone: phone,
+          inserted_at: inserted_at
+        }
+      }) do
+    %{
+      id: id,
+      name: name,
+      phone: phone,
+      inserted_at: inserted_at
+    }
+  end
 end

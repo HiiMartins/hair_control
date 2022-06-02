@@ -11,8 +11,8 @@ defmodule HairControl.Client.Get do
 
   def get_client(uuid) do
     case Repo.get(Client, uuid) do
-      nil -> {:error, "Trainer not found!"}
-      client -> client
+      nil -> {:error, "Client not found!"}
+      client -> {:ok, client}
     end
   end
 end

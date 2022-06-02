@@ -19,7 +19,7 @@ defmodule HairControl.Client.GetTest do
 
       response = Get.call(client.id)
 
-      assert %Client{name: "Evelin"} = response
+      assert {:ok, %Client{name: "Evelin"}} = response
     end
   end
 end
