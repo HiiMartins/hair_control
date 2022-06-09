@@ -41,4 +41,27 @@ defmodule HairControlWeb.ClientsView do
       inserted_at: inserted_at
     }
   end
+
+  def render("update.json", %{
+        client: %Client{
+          id: id,
+          name: name,
+          cpf: cpf,
+          rg: rg,
+          phone: phone,
+          inserted_at: inserted_at
+        }
+      }) do
+    %{
+      message: "Client updated!",
+      client: %{
+        id: id,
+        name: name,
+        phone: phone,
+        cpf: cpf,
+        rg: rg,
+        inserted_at: inserted_at
+      }
+    }
+  end
 end

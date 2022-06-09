@@ -15,6 +15,12 @@ defmodule HairControlWeb.ClientsController do
     |> handle_response(conn, "show.json", :ok)
   end
 
+  def update(conn, params) do
+    params
+    |> HairControl.update_client()
+    |> handle_response(conn, "update.json", :ok)
+  end
+
   defp handle_response({:ok, client}, conn, view, status) do
     conn
     |> put_status(status)
