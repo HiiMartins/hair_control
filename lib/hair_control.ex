@@ -12,5 +12,6 @@ defmodule HairControl do
 
   defdelegate create_client(params), to: Client.Create, as: :call
   defdelegate fetch_client(params), to: Client.Get, as: :call
+  defdelegate list_client(), to: Client.List, as: :call
   defdelegate update_client(params), to: Client.Update, as: :call
 end

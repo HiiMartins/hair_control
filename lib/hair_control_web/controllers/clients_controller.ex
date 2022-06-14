@@ -9,6 +9,11 @@ defmodule HairControlWeb.ClientsController do
     |> handle_response(conn, "create.json", :created)
   end
 
+  def list(conn, _params) do
+    HairControl.list_client()
+    |> handle_response(conn, "list.json", :ok)
+  end
+
   def show(conn, %{"id" => id}) do
     id
     |> HairControl.fetch_client()

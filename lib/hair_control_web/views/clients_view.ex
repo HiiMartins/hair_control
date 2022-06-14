@@ -26,6 +26,10 @@ defmodule HairControlWeb.ClientsView do
     }
   end
 
+  def render("list.json", %{client: client}) do
+    Enum.map(client, &render("show.json", %{client: &1}))
+  end
+
   def render("show.json", %{
         client: %Client{
           id: id,
