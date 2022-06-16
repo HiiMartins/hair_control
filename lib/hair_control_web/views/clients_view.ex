@@ -26,6 +26,12 @@ defmodule HairControlWeb.ClientsView do
     }
   end
 
+  def render("delete.json", %{client: %Client{name: name}}) do
+    %{
+      message: "The client #{name} was deleted with sucess!"
+    }
+  end
+
   def render("list.json", %{client: client}) do
     Enum.map(client, &render("show.json", %{client: &1}))
   end

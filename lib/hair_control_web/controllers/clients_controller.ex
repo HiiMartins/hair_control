@@ -9,6 +9,12 @@ defmodule HairControlWeb.ClientsController do
     |> handle_response(conn, "create.json", :created)
   end
 
+  def delete(conn, params) do
+    params
+    |> HairControl.delete_client()
+    |> handle_response(conn, "delete.json", :ok)
+  end
+
   def list(conn, _params) do
     HairControl.list_client()
     |> handle_response(conn, "list.json", :ok)
