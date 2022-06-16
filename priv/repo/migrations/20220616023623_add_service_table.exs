@@ -5,7 +5,7 @@ defmodule HairControl.Repo.Migrations.AddServiceTable do
     create table(:services, primary_key: false) do
       add :id, :uuid, primary_key: true
       add :title, :string
-      add :price, :number
+      add :price, :float
 
       timestamps()
     end

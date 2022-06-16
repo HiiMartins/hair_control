@@ -5,9 +5,8 @@ defmodule HairControl.Service do
   @primary_key {:id, Ecto.UUID, autogenerate: true}
 
   schema "services" do
-    field :id, :uuid, primary_key: true
     field :title, :string
-    field :price, :number
+    field :price, :float
 
     timestamps()
   end
