@@ -16,7 +16,7 @@ defmodule HairControlWeb.ClientsController do
   end
 
   def list(conn, _params) do
-    HairControl.list_client()
+    HairControl.list_clients()
     |> handle_response(conn, "list.json", :ok)
   end
 
