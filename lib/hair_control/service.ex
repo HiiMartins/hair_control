@@ -19,10 +19,11 @@ defmodule HairControl.Service do
     |> apply_action(:insert)
   end
 
-  defp changeset(params), do: create_changeset(params)
+  def changeset(service, params), do: create_changeset(service, params)
+  defp changeset(params), do: create_changeset(%__MODULE__{}, params)
 
-  defp create_changeset(params) do
-    %__MODULE__{}
+  defp create_changeset(module_or_service, params) do
+    module_or_service
     |> cast(params, @required_params)
     |> validate_required(@required_params)
   end
