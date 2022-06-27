@@ -2,11 +2,15 @@ defmodule HairControl.Service do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias HairControl.Sale
+
   @primary_key {:id, Ecto.UUID, autogenerate: true}
 
   schema "services" do
     field :title, :string
     field :price, :float
+
+    has_many(:sale, Sale)
 
     timestamps()
   end

@@ -2,6 +2,8 @@ defmodule HairControl.Client do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias HairControl.Sale
+
   @primary_key {:id, Ecto.UUID, autogenerate: true}
 
   schema "clients" do
@@ -11,6 +13,8 @@ defmodule HairControl.Client do
     field :rg, :string
     field :address, :string
     field :district, :string
+
+    has_many(:sale, Sale)
 
     timestamps()
   end

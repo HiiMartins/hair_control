@@ -29,8 +29,6 @@ defmodule HairControl.Sale do
     %__MODULE__{}
     |> cast(params, @required_params)
     |> validate_required(@required_params)
-    |> assoc_constraint(:employee)
-    |> assoc_constraint(:service)
-    |> assoc_constraint(:client)
+    |> foreign_key_constraint(:employee_id, name: :sales_employee_id_fkey)
   end
 end

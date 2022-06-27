@@ -2,6 +2,8 @@ defmodule HairControl.Employee do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias HairControl.Sale
+
   @primary_key {:id, Ecto.UUID, autogenerate: true}
 
   schema "employees" do
@@ -10,6 +12,8 @@ defmodule HairControl.Employee do
     field :password_hash, :string
     field :password, :string, virtual: true
     field :email, :string
+
+    has_many(:sale, Sale)
 
     timestamps()
   end
