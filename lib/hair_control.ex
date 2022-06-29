@@ -6,7 +6,7 @@ defmodule HairControl do
   Contexts are also responsible for managing your data, regardless
   if it comes from the database, an external API or others.
   """
-  alias HairControl.{Employee, Client, Service}
+  alias HairControl.{Employee, Client, Sale, Service}
 
   defdelegate create_employee(params), to: Employee.Create, as: :call
 
@@ -21,4 +21,6 @@ defmodule HairControl do
   defdelegate fetch_service(params), to: Service.Get, as: :call
   defdelegate list_services(), to: Service.List, as: :call
   defdelegate update_service(params), to: Service.Update, as: :call
+
+  defdelegate create_sale(params), to: Sale.Create, as: :call
 end
