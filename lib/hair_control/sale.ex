@@ -23,12 +23,11 @@ defmodule HairControl.Sale do
     |> apply_action(:insert)
   end
 
-  defp changeset(params), do: create_changeset(params)
+  def changeset(params), do: create_changeset(params)
 
   defp create_changeset(params) do
     %__MODULE__{}
     |> cast(params, @required_params)
     |> validate_required(@required_params)
-    |> foreign_key_constraint(:employee_id, name: :sales_employee_id_fkey)
   end
 end
