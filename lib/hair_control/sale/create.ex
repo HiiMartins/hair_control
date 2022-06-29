@@ -18,7 +18,7 @@ defmodule HairControl.Sale.Create do
   defp fetch_employee({:ok, %Sale{employee_id: employee_id}} = params) do
     case Repo.get(Employee, employee_id) do
       nil -> {:error, "Employee not found!"}
-      _result -> {:ok, params}
+      _result -> params
     end
   end
 
@@ -27,7 +27,7 @@ defmodule HairControl.Sale.Create do
   defp fetch_client({:ok, %Sale{client_id: client_id}} = params) do
     case Repo.get(Client, client_id) do
       nil -> {:error, "Client not found!"}
-      _result -> {:ok, params}
+      _result -> params
     end
   end
 
@@ -36,7 +36,7 @@ defmodule HairControl.Sale.Create do
   defp fetch_service({:ok, %Sale{service_id: service_id}} = params) do
     case Repo.get(Service, service_id) do
       nil -> {:error, "Service not found!"}
-      _result -> {:ok, params}
+      _result -> params
     end
   end
 
