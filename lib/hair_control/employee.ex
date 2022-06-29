@@ -13,7 +13,7 @@ defmodule HairControl.Employee do
     field :password, :string, virtual: true
     field :email, :string
 
-    has_many(:sale, Sale)
+    has_many :sale, Sale
 
     timestamps()
   end
