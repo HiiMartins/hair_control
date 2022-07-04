@@ -1,14 +1,98 @@
 # HairControl
+<p>É uma api REST, construída em Elixir com o objetivo de auxliar na administração de um salão de cabeleiro</p>
 
-To start your Phoenix server:
+Para iniciar seu server:
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+  * Instale as dependências com: `mix deps.get`
+  * Crie e migre seu bando de dados com: `mix ecto.setup`
+  * Inicie Phoenix endpoint com: `mix phx.server` ou inside IEx com: `iex -S mix phx.server`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Agora você pode visitar [`localhost:4000`](http://localhost:4000) do seu navegador.
+<br><br>
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+# Chamadas para API
+## Clientes
+### Inserção de Clientes
+
+**[POST]** _/api/clients_ 
+
+```json
+Exemplo de requisão
+
+{
+	"name": "NAME",
+	"cpf": "12345678900",
+	"rg": "123456780",
+	"address": "RUA, N°",
+	"district": "BAIRRO",
+	"phone": "(xx) xxxxx-xxxx"
+}
+```
+```json
+Exemplo da resposta de Sucesso
+
+{
+  "message": "Client created!",
+	"client": {
+		"cpf": "12345678900",
+		"id": "UUID",
+		"inserted_at": "2022-07-03T04:05:31",
+		"name": "NAME",
+		"phone": "(xx) xxxxx-xxxx",
+		"rg": "123456780"
+	}
+}
+```
+
+### Atualizar o Registro de um cliente
+
+**[PUT]** _/api/clients/:id_
+
+``` json
+Exemplo de requisão alterando o nome
+
+{
+	"name": "UPDATE_NAME"
+}
+```
+
+```json
+Exemplo da resposta de sucesso
+{
+  "message": "Client updated!",
+	"client": {
+		"cpf": "12345678900",
+		"id": "UUID",
+		"inserted_at": "2022-07-03T04:05:31",
+		"name": "UPDATE_NAME",
+		"phone": "(xx) xxxxx-xxxx",
+		"rg": "123456780"
+	}
+}
+```
+
+### Buscar um dados de um cliente
+**[GET]** _/api/clients/:id_
+```json
+Exemplo da resposta, passando um id válido. 
+
+{
+	"id": "UUID",
+	"inserted_at": "2022-07-03T04:05:31",
+	"name": "NAME",
+	"phone": "(xx) xxxxx-xxxx"
+}
+```
+### Deletar um cliente
+
+**[DELETE]** _api/clients/:id_
+```json
+Exemplo da resposta, passando um id válido.
+
+{
+	"message": "The client CLIENT_NAME was deleted with sucess!"
+}
+```
 
 ## Learn more
 
