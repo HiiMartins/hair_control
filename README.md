@@ -94,7 +94,83 @@ Exemplo da resposta, passando um id válido.
 }
 ```
 
-## Learn more
+## Serviços
+### Inserção de um serviço no Banco
+**[POST]** _/api/services_
+
+```json
+Exemplo da requisão
+{
+	"title": "TITLE_SERVICE",
+	"price": 20.00
+}
+```
+```json
+Exemplo da resposta
+{
+	"message": "Service created!",
+	"service": {
+		"id": "UUID",
+		"inserted_at": "2022-07-03T04:05:56",
+		"price": 20.0,
+		"title": "TITLE_SERICE"
+	}
+}
+```
+## Funcionáros
+### Inserção de um funcinário
+**[POST]** _api/employees_
+```json
+Exemplo da requisão
+{
+	"email": "EMPLOYEE@MAIL.COM",
+	"password": "123456",
+	"name": "NAME",
+	"cpf": "12345678900"
+}
+```
+```json
+Exemplo da resposta
+{
+  "message": "Employee created!",
+	"employee": {
+		"cpf": "12345678912",
+		"email": "EMAIL@MAIL.com",
+		"id": "UUID",
+		"inserted_at": "2022-07-04T20:35:16",
+		"name": "NAME"
+	}
+}
+```
+
+## Venda
+### Cadastrando uma venda
+```json
+Exemplo da requisição
+
+{
+	"payment_method": "PAYMENT_METHOD", // "dinheiro", "cartão", "fiado".
+	"employee_id": "EMPLOYEE_UUID",
+	"service_id": "SERVICE_UUID",
+	"client_id": "CLIENT_UUID"
+}
+```
+
+```json
+Exemplo da resposta
+{
+	"messagge": "Sale created!",
+	"sale": {
+		"client_id": "CLIENT_UUID",
+		"employee_id": "EMPLOYEE_ID",
+		"id": "UUID",
+		"inserterd_at": "2022-07-04T20:36:55",
+		"service_id": "SERVICE_UUID"
+	}
+}
+```
+
+## Learn more about Phoenix and Elixir
 
   * Official website: https://www.phoenixframework.org/
   * Guides: https://hexdocs.pm/phoenix/overview.html
