@@ -9,8 +9,8 @@ defmodule HairControlWeb.ServicesController do
     |> handle_response(conn, "create.json", :created)
   end
 
-  def delete(conn, params) do
-    params
+  def delete(conn, %{"id" => id}) do
+    id
     |> HairControl.delete_service()
     |> handle_response(conn, "delete.json", :ok)
   end
