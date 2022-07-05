@@ -9,6 +9,10 @@ defmodule HairControl do
   alias HairControl.{Employee, Client, Sale, Service}
 
   defdelegate create_employee(params), to: Employee.Create, as: :call
+  defdelegate delete_employee(params), to: Employee.Delete, as: :call
+  defdelegate fetch_employee(params), to: Employee.Get, as: :call
+  defdelegate list_employees(), to: Employee.List, as: :call
+  defdelegate update_employee(params), to: Employee.Update, as: :call
 
   defdelegate create_client(params), to: Client.Create, as: :call
   defdelegate delete_client(params), to: Client.Delete, as: :call
