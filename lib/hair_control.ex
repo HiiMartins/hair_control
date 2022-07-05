@@ -27,4 +27,7 @@ defmodule HairControl do
   defdelegate update_service(params), to: Service.Update, as: :call
 
   defdelegate create_sale(params), to: Sale.Create, as: :call
+  defdelegate delete_sale(params), to: Sale.Delete, as: :call
+  defdelegate fetch_sale(params), to: Sale.Get, as: :call
+  defdelegate list_sales(), to: Sale.List, as: :call
 end
