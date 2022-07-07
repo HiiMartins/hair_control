@@ -33,7 +33,7 @@ defmodule HairControlWeb.SalesView do
   end
 
   def render("list.json", %{sale: sale}) do
-    Enum.map(sale, &render("show.json", %{client: &1}))
+    Enum.map(sale, &render("show.json", %{sale: &1}))
   end
 
   def render("show.json", %{
