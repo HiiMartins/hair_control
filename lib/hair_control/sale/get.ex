@@ -12,7 +12,7 @@ defmodule HairControl.Sale.Get do
   defp fetch_sale(uuid) do
     case Repo.get(Sale, uuid) do
       nil -> {:error, "Sale not Found!"}
-      sale -> {:ok, sale}
+      sale -> {:ok, Repo.preload(sale, [:service, :client, :employee])}
     end
   end
 end

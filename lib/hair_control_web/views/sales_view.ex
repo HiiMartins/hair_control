@@ -1,7 +1,7 @@
 defmodule HairControlWeb.SalesView do
   use HairControlWeb, :view
 
-  alias HairControl.Sale
+  alias HairControl.{Client, Employee, Sale, Service}
 
   def render("create.json", %{
         sale: %Sale{
@@ -38,20 +38,28 @@ defmodule HairControlWeb.SalesView do
 
   def render("show.json", %{
         sale: %Sale{
+          client: %Client{
+            name: name_client
+          },
+          service: %Service{
+            title: title,
+            price: price
+          },
+          employee: %Employee{
+            name: name_employee
+          },
           id: id,
           payment_method: payment_method,
-          client_id: client_id,
-          employee_id: employee_id,
-          service_id: service_id,
           inserted_at: inserted_at
         }
       }) do
     %{
       id: id,
+      name_client: name_client,
+      name_employee: name_employee,
+      title_service: title,
+      price_service: price,
       payment_method: payment_method,
-      client_id: client_id,
-      employee_id: employee_id,
-      service_id: service_id,
       inserted_at: inserted_at
     }
   end
