@@ -8,6 +8,7 @@ defmodule HairControlWeb.ServicesView do
           id: id,
           title: title,
           price: price,
+          commission_percentage: commission_percentage,
           inserted_at: inserted_at
         }
       }) do
@@ -17,6 +18,7 @@ defmodule HairControlWeb.ServicesView do
         id: id,
         title: title,
         price: price,
+        commission_percentage: commission_percentage,
         inserted_at: inserted_at
       }
     }
