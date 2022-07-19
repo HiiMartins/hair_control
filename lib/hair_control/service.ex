@@ -9,6 +9,7 @@ defmodule HairControl.Service do
   schema "services" do
     field :title, :string
     field :price, :float
+    field :commission_percentage, :integer, default: 50
 
     has_many(:sale, Sale)
 
