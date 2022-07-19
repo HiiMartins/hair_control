@@ -6,6 +6,7 @@ defmodule HairControl.Repo.Migrations.AddServiceTable do
       add :id, :uuid, primary_key: true
       add :title, :string
       add :price, :float
+      add :commission_percentage, :integer
 
       timestamps()
     end

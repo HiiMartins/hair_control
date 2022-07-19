@@ -8,6 +8,7 @@ defmodule HairControl.Repo.Migrations.AddEmployeeTable do
       add :cpf, :string
       add :password_hash, :string
       add :email, :string
+      add :total_commission, :float
 
       timestamps()
     end
