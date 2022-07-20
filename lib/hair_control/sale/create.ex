@@ -5,6 +5,7 @@ defmodule HairControl.Sale.Create do
     params
     |> Sale.build()
     |> fetch_constraint()
+    |> preloud_assotions()
     |> create_sale()
   end
 
@@ -41,6 +42,14 @@ defmodule HairControl.Sale.Create do
   end
 
   defp fetch_service({:error, _reason} = error), do: error
+
+  defp preloud_assotions({:ok, struct}) do
+    struct
+    |> Repo.preload([:service, :employee])
+    |> Employee.Update.update_total_comission()
+  end
+
+  defp preloud_assotions({:error, _reason} = error), do: error
 
   defp create_sale({:ok, struct}), do: Repo.insert(struct)
   defp create_sale({:error, _changeset} = error), do: error

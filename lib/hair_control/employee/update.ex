@@ -1,5 +1,5 @@
 defmodule HairControl.Employee.Update do
-  alias HairControl.{Employee, Repo}
+  alias HairControl.{Employee, Sale, Service, Repo}
   alias Ecto.UUID
 
   def call(%{"id" => uuid} = params) do
@@ -7,6 +7,21 @@ defmodule HairControl.Employee.Update do
       :error -> {:error, "Invalid ID format!"}
       {:ok, _uuid} -> fetch_employee(params)
     end
+  end
+
+  def update_total_comission(
+        %Sale{
+          employee: employee,
+          service: %Service{price: price, commission_percentage: commission_percentage}
+        } = struct
+      ) do
+    result_update_comission = %{update_commission: price * commission_percentage / 100}
+
+    employee
+    |> Employee.changeset(result_update_comission)
+    |> Repo.update()
+
+    {:ok, struct}
   end
 
   defp fetch_employee(%{"id" => uuid} = params) do

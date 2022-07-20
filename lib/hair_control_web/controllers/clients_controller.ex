@@ -15,9 +15,7 @@ defmodule HairControlWeb.ClientsController do
     |> handle_response(conn, "delete.json", :ok)
   end
 
-  def list(conn, filters) do
-    IO.inspect(filters)
-    IO.inspect(conn)
+  def list(conn, _filters) do
     HairControl.list_clients()
     |> handle_response(conn, "list.json", :ok)
   end
