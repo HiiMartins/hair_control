@@ -11,7 +11,7 @@ defmodule HairControl.Sale.Delete do
 
   def fetch_sale(uuid) do
     case Repo.get(Sale, uuid) do
-      nil -> {:error, "Client not Found!"}
+      nil -> {:error, "Sale not found!"}
       sale -> Repo.delete(sale)
     end
   end
