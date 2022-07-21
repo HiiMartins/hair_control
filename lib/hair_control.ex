@@ -7,6 +7,7 @@ defmodule HairControl do
   if it comes from the database, an external API or others.
   """
   alias HairControl.{Employee, Client, Sale, Service}
+  alias Employee.Payroll
 
   defdelegate create_employee(params), to: Employee.Create, as: :call
   defdelegate delete_employee(params), to: Employee.Delete, as: :call
@@ -30,4 +31,9 @@ defmodule HairControl do
   defdelegate delete_sale(params), to: Sale.Delete, as: :call
   defdelegate fetch_sale(params), to: Sale.Get, as: :call
   defdelegate list_sales(), to: Sale.List, as: :call
+
+  defdelegate create_payroll(params), to: Payroll.Create, as: :call
+  defdelegate delete_payroll(params), to: Payroll.Delete, as: :call
+  defdelegate fetch_payroll(params), to: Payroll.Get, as: :call
+  defdelegate list_payroll(), to: Payroll.List, as: :call
 end
