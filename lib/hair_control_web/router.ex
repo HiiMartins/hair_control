@@ -27,6 +27,9 @@ defmodule HairControlWeb.Router do
     resources "/employees", EmployeesController, only: [:create, :show, :delete, :update]
     get "/employees", EmployeesController, :list
 
+    resources "/employees/payroll", PayrollController, only: [:create, :show, :delete]
+    get "/employees/payroll", PayrollController, :list
+
     resources "/clients", ClientsController, only: [:create, :show, :delete, :update]
     get "/clients", ClientsController, :list
 
