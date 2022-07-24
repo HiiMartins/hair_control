@@ -1,5 +1,6 @@
 defmodule HairControl.Employee.Update do
   alias HairControl.{Employee, Sale, Service, Repo}
+  alias Employee.Payroll
   alias Ecto.UUID
 
   def call(%{"id" => uuid} = params) do
@@ -19,6 +20,19 @@ defmodule HairControl.Employee.Update do
 
     employee
     |> Employee.changeset(result_update_comission)
+    |> Repo.update()
+
+    {:ok, struct}
+  end
+
+  def update_total_received(
+        %Payroll{
+          employee: employee,
+          amount_paid: amount_paid
+        } = struct
+      ) do
+    employee
+    |> Employee.changeset(%{amount_paid: amount_paid})
     |> Repo.update()
 
     {:ok, struct}
