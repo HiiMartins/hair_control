@@ -2,7 +2,8 @@ defmodule HairControl.Employee do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias HairControl.Sale
+  alias HairControl.{Employee, Sale}
+  alias Employee.Payroll
 
   @primary_key {:id, Ecto.UUID, autogenerate: true}
 
@@ -13,8 +14,10 @@ defmodule HairControl.Employee do
     field :password, :string, virtual: true
     field :email, :string
     field :total_commission, :float, default: 0.0
+    field :total_received, :float, default: 0.0
 
     has_many :sale, Sale
+    has_one :payroll, Payroll
 
     timestamps()
   end
@@ -22,6 +25,7 @@ defmodule HairControl.Employee do
   @required_params [:name, :cpf, :password, :email]
   @req_update_params_no_pass [:name, :cpf, :email]
   @req_total_commission [:total_commission]
+  @req_total_received [:total_received]
 
   def build(params) do
     params
@@ -40,12 +44,20 @@ defmodule HairControl.Employee do
     |> put_pass_hash()
   end
 
-  defp create_changeset(%{total_commission: total_commission} = module_or_employee, %{update_commission: update_commission} = params) do
-    module_or_employee
+  defp create_changeset(%{total_commission: total_commission} = employee, %{update_commission: update_commission} = params) do
+    employee
     |> cast(params, @req_total_commission)
     |> validate_required(@req_total_commission)
     |> change(total_commission: total_commission + update_commission)
   end
+
+  defp create_changeset(%{total_received: total_received} = employee, %{amount_paid: amount_paid} = params) do
+    employee
+    |> cast(params, @req_total_received)
+    |> validate_required(@req_total_received)
+    |> change(total_received: total_received + amount_paid)
+  end
+
 
   defp create_changeset(module_or_employee, params) do
     module_or_employee
