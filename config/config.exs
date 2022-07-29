@@ -50,3 +50,11 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
+
+config :hair_control, HairControlWeb.Auth.Guardian,
+  issuer: "hair_control",
+  secret_key: "2hxAfbe9NYSFFyu1wnbfjiuxdH6crkaEhibQ4jQwWsW4FofENqWJeO48FBQmLiZX"
+
+config :hair_control, HairControlWeb.Auth.Pipeline,
+  module: HairControlWeb.Auth.Guardian,
+  error_handler: HairControlWeb.Auth.ErrorHandler
