@@ -10,6 +10,7 @@ defmodule HairControlWeb.EmployeesView do
           cpf: cpf,
           email: email,
           total_commission: total_commission,
+          total_received: total_received,
           inserted_at: inserted_at
         }
       }) do
@@ -21,6 +22,7 @@ defmodule HairControlWeb.EmployeesView do
         cpf: cpf,
         email: email,
         total_commission: total_commission,
+        total_received: total_received,
         inserted_at: inserted_at
       }
     }
@@ -43,6 +45,7 @@ defmodule HairControlWeb.EmployeesView do
           cpf: cpf,
           email: email,
           total_commission: total_commission,
+          total_received: total_received,
           inserted_at: inserted_at
         }
       }) do
@@ -52,6 +55,7 @@ defmodule HairControlWeb.EmployeesView do
       cpf: cpf,
       email: email,
       total_commission: total_commission,
+      total_received: total_received,
       inserted_at: inserted_at
     }
   end
