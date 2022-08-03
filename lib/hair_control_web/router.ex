@@ -28,12 +28,14 @@ defmodule HairControlWeb.Router do
   scope "/api", HairControlWeb do
     pipe_through :api
 
+    post "/employees", EmployeesController, :create
+    post "/employees/signin", EmployeesController, :sign_in
   end
 
   scope "/api", HairControlWeb do
     pipe_through [:api, :auth]
 
-    resources "/employees", EmployeesController, only: [:create, :show, :delete, :update]
+    resources "/employees", EmployeesController, only: [:show, :delete, :update]
     get "/employees", EmployeesController, :list
 
     resources "/employees/payroll", PayrollController, only: [:create, :show, :delete]
