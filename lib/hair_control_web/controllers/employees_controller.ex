@@ -1,12 +1,25 @@
 defmodule HairControlWeb.EmployeesController do
   use HairControlWeb, :controller
 
+  alias HairControlWeb.Auth.Guardian
+
   action_fallback HairControlWeb.FallbackController
 
   def create(conn, params) do
-    params
-    |> HairControl.create_employee()
-    |> handle_response(conn, "create.json", :created)
+    with {:ok, employee} <- HairControl.create_employee(params),
+         {:ok, token, _claims} <- Guardian.encode_and_sign(employee) do
+      conn
+      |> put_status(:created)
+      |> render("create.json", %{employee: employee, token: token})
+    end
+  end
+
+  def sign_in(conn, params) do
+    with {:ok, token} <- Guardian.authenticate(params) do
+      conn
+      |> put_status(:ok)
+      |> render("sign_in.json", token: token)
+    end
   end
 
   def delete(conn, %{"id" => id}) do
@@ -39,4 +52,4 @@ defmodule HairControlWeb.EmployeesController do
   end
 
   defp handle_response({:error, _changeset} = error, _conn, _view, _status), do: error
- end
+end

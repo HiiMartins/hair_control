@@ -12,7 +12,8 @@ defmodule HairControlWeb.EmployeesView do
           total_commission: total_commission,
           total_received: total_received,
           inserted_at: inserted_at
-        }
+        },
+        token: token
       }) do
     %{
       message: "Employee created!",
@@ -24,9 +25,12 @@ defmodule HairControlWeb.EmployeesView do
         total_commission: total_commission,
         total_received: total_received,
         inserted_at: inserted_at
-      }
+      },
+      token: token
     }
   end
+
+  def render("sign_in.json", %{token: token}), do: %{token: token}
 
   def render("delete.json", %{employee: %Employee{name: name}}) do
     %{

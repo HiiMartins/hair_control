@@ -14,6 +14,10 @@ defmodule HairControlWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth do
+    plug HairControlWeb.Auth.Pipeline
+  end
+
   scope "/", HairControlWeb do
     pipe_through :browser
 
@@ -23,6 +27,11 @@ defmodule HairControlWeb.Router do
   # Other scopes may use custom stacks.
   scope "/api", HairControlWeb do
     pipe_through :api
+
+  end
+
+  scope "/api", HairControlWeb do
+    pipe_through [:api, :auth]
 
     resources "/employees", EmployeesController, only: [:create, :show, :delete, :update]
     get "/employees", EmployeesController, :list
