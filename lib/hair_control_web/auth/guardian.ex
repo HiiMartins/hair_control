@@ -1,5 +1,5 @@
 defmodule HairControlWeb.Auth.Guardian do
-  use Guardian, opt_app: :hair_control
+  use Guardian, otp_app: :hair_control
 
   alias HairControl.{Employee, Repo}
 
@@ -21,14 +21,14 @@ defmodule HairControlWeb.Auth.Guardian do
     end
   end
 
-  defp validate_password(%Employee{password_hash: hash} = employee, password) do
+  def validate_password(%Employee{password_hash: hash} = employee, password) do
     case Argon2.verify_pass(password, hash) do
       true -> create_token(employee)
       false -> {:error, :unauthorized}
     end
   end
 
-  defp create_token(employee) do
+  def create_token(employee) do
     {:ok, token, _claims} = encode_and_sign(employee)
     {:ok, token}
   end
