@@ -14,8 +14,8 @@ defmodule HairControlWeb.Auth.Guardian do
     |> HairControl.fetch_employee()
   end
 
-  def authenticate(%{"id" => employee_id, "password" => password}) do
-    case Repo.get(Employee, employee_id) do
+  def authenticate(%{"email" => employee_email, "password" => password}) do
+    case Repo.get_by(Employee, email: employee_email) do
       nil -> {:error, "Employee not found!"}
       employee -> validate_password(employee, password)
     end
