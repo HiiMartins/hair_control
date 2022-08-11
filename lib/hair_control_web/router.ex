@@ -11,6 +11,7 @@ defmodule HairControlWeb.Router do
   end
 
   pipeline :api do
+    plug CorsPlug
     plug :accepts, ["json"]
   end
 
