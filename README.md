@@ -1,4 +1,5 @@
 # HairControl
+> :construction: Projeto em construção :construction:
 <p>É uma api REST, construída em Elixir com o objetivo de auxliar na administração de um salão de cabeleiro</p>
 
 Para iniciar seu server:
@@ -11,6 +12,86 @@ Agora você pode visitar [`localhost:4000`](http://localhost:4000) do seu navega
 <br><br>
 
 # Chamadas para API
+
+## Funcionáros
+### Inserção de um funcinário
+**[POST]** _api/employees_
+```json
+Exemplo da requisão
+{
+	"email": "EMPLOYEE@MAIL.COM",
+	"password": "123456",
+	"name": "NAME",
+	"cpf": "12345678900"
+}
+```
+```json
+Exemplo da resposta
+{
+  "message": "Employee created!",
+	"employee": {
+		"cpf": "12345678912",
+		"email": "EMAIL@MAIL.com",
+		"id": "UUID",
+		"inserted_at": "2022-07-04T20:35:16",
+		"name": "NAME"
+	}
+}
+```
+### Realização de login do funcionário
+**[POST]** _/api/employees/signin_
+```json
+Exemplo da requisição de login
+
+{
+	"email": "EMAIL",
+	"password": "PASSWORD"
+}
+```
+```json
+Exemplo da resposta de sucesso no login
+
+{
+	"token": "TOKEN_JWT"
+}
+```
+
+### Atualizar o Registro de um funcionário
+
+**[PUT]** _/api/employees/:id_
+
+``` json
+Exemplo de requisão alterando o nome
+
+{
+	"name": "UPDATE_NAME"
+}
+```
+```json
+Exemplo da resposta
+{
+  "message": "Employee created!",
+	"employee": {
+		"cpf": "12345678912",
+		"email": "EMAIL@MAIL.com",
+		"id": "UUID",
+		"inserted_at": "2022-07-04T20:35:16",
+		"name": "UPDATE_NAME"
+	}
+}
+```
+### Buscar dados de um Funcionário
+**[GET]** _/api/employees/:id_
+
+### Listar todos os Funcinários
+**[GET]** _/api/employees_
+
+### Atualizar os dados de um Funcionário
+**[PUT]** _/api/employees_
+
+### Excluir funcionário da base de dados
+**[DELETE]** _/api/employees/:id_
+
 ## Clientes
 ### Inserção de Clientes
 
@@ -71,10 +152,10 @@ Exemplo da resposta de sucesso
 }
 ```
 
-### Buscar um dados de um cliente
+### Buscar os dados de um cliente
 **[GET]** _/api/clients/:id_
 ```json
-Exemplo da resposta, passando um id válido. 
+Exemplo da resposta, passando um id que corresponde a um cliente. 
 
 {
 	"id": "UUID",
@@ -83,6 +164,39 @@ Exemplo da resposta, passando um id válido.
 	"phone": "(xx) xxxxx-xxxx"
 }
 ```
+### Listar todos o clientes
+**[GET]** _/api/clients_
+```json
+Exemplo da resposta, quando não houver clientes cadastrados
+
+[]
+```
+```json
+Exemplo da resposta, quando houver clientes cadastrados
+
+[
+	{
+		"id": "UUID",
+		"inserted_at": "2022-07-03T04:05:31",
+		"name": "NAME",
+		"phone": "(xx) xxxxx-xxxx"
+	},
+	{
+		"id": "UUID",
+		"inserted_at": "2022-07-03T04:05:31",
+		"name": "NAME",
+		"phone": "(xx) xxxxx-xxxx"
+	},
+	{
+		"id": "UUID",
+		"inserted_at": "2022-07-03T04:05:31",
+		"name": "NAME",
+		"phone": "(xx) xxxxx-xxxx"
+	}
+	...
+]
+```
+
 ### Deletar um cliente
 
 **[DELETE]** _api/clients/:id_
@@ -117,34 +231,10 @@ Exemplo da resposta
 	}
 }
 ```
-## Funcionáros
-### Inserção de um funcinário
-**[POST]** _api/employees_
-```json
-Exemplo da requisão
-{
-	"email": "EMPLOYEE@MAIL.COM",
-	"password": "123456",
-	"name": "NAME",
-	"cpf": "12345678900"
-}
-```
-```json
-Exemplo da resposta
-{
-  "message": "Employee created!",
-	"employee": {
-		"cpf": "12345678912",
-		"email": "EMAIL@MAIL.com",
-		"id": "UUID",
-		"inserted_at": "2022-07-04T20:35:16",
-		"name": "NAME"
-	}
-}
-```
 
 ## Venda
 ### Cadastrando uma venda
+**[POST]** _/api/sales_
 ```json
 Exemplo da requisição
 
@@ -169,6 +259,29 @@ Exemplo da resposta
 	}
 }
 ```
+### Buscar dados de uma venda
+**[GET]** _/api/sales/:id_
+
+### Listar todas as vendas
+**[GET]** _/api/sales_
+
+### Excluir venda da base de dados
+**[DELETE]** _/api/sales/:id_
+
+## Folha de Pagamento
+### Cadastrar um Pagamento de um funcionário 
+**[POST]** _/api/employees/payroll_
+
+### Buscar dados de uma venda
+**[GET]** _/api/employees/payroll/:id_
+
+### Listar todas as vendas
+**[GET]** _/api/employees/payroll_
+
+### Excluir venda da base de dados
+**[DELETE]** _/api/employees/payroll/:id_
+
+***
 
 ## Learn more about Phoenix and Elixir
 
