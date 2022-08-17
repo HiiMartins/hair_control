@@ -41,6 +41,10 @@ defmodule HairControlWeb.ClientsView do
           id: id,
           name: name,
           phone: phone,
+          cpf: cpf,
+          rg: rg,
+          address: address,
+          district: district,
           inserted_at: inserted_at
         }
       }) do
@@ -48,6 +52,10 @@ defmodule HairControlWeb.ClientsView do
       id: id,
       name: name,
       phone: phone,
+      cpf: cpf,
+      rg: rg,
+      address: address,
+      district: district,
       inserted_at: inserted_at
     }
   end
@@ -59,6 +67,8 @@ defmodule HairControlWeb.ClientsView do
           cpf: cpf,
           rg: rg,
           phone: phone,
+          address: address,
+          district: district,
           inserted_at: inserted_at
         }
       }) do
@@ -70,6 +80,8 @@ defmodule HairControlWeb.ClientsView do
         phone: phone,
         cpf: cpf,
         rg: rg,
+        address: address,
+        district: district,
         inserted_at: inserted_at
       }
     }
