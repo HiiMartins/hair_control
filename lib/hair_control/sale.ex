@@ -6,7 +6,7 @@ defmodule HairControl.Sale do
   @foreign_key_type Ecto.UUID
 
   schema "sales" do
-    field :payment_method, Ecto.Enum, values: [:dinheiro, :cartão, :fiado]
+    field :payment_method, Ecto.Enum, values: [:dinheiro, :cartão, :fiado, :pix]
 
     belongs_to :employee, HairControl.Employee
     belongs_to :client, HairControl.Client
