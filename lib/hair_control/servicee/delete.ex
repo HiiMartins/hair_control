@@ -2,8 +2,8 @@ defmodule HairControl.Service.Delete do
   alias HairControl.{Service, Repo}
   alias Ecto.UUID
 
-  def call(%{"id" => uuid}) do
-    case UUID.cast(uuid) do
+  def call(id) do
+    case UUID.cast(id) do
       :error -> {:error, "Invalid ID format!"}
       {:ok, uuid} -> fetch_service(uuid)
     end
