@@ -21,7 +21,7 @@ defmodule HairControl.Helper.Cpf do
     |> secund_digit_validation()
   end
 
-  def first_digit_validation({[secund_digit, first_digit], list_validator}) do
+  defp first_digit_validation({[secund_digit, first_digit], list_validator}) do
     multiply_list_elements_by_increasing_index_starting_from_two(list_validator)
     |> Enum.reduce(0, fn x, acc -> x + acc end)
     |> multiply_for_ten()
