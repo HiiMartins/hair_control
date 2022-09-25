@@ -15,8 +15,9 @@ defmodule HairControlWeb.SalesController do
     |> handle_response(conn, "delete.json", :ok)
   end
 
-  def list(conn, _params) do
-    HairControl.list_sales()
+  def list(conn, params) do
+    params
+    |> HairControl.list_sales()
     |> handle_response(conn, "list.json", :ok)
   end
 
