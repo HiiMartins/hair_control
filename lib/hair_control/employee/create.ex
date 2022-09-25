@@ -1,10 +1,12 @@
 defmodule HairControl.Employee.Create do
-  alias HairControl.{Employee, Repo}
+  alias HairControl.{Employee, Helper, Repo}
+  alias Helper.Cpf
 
   def call(params) do
     params
     |> Employee.build()
     |> check_email_unique()
+    |> Cpf.cpf_validator()
     |> create_employee()
   end
 
