@@ -30,7 +30,7 @@ defmodule HairControl do
   defdelegate create_sale(params), to: Sale.Create, as: :call
   defdelegate delete_sale(params), to: Sale.Delete, as: :call
   defdelegate fetch_sale(params), to: Sale.Get, as: :call
-  defdelegate list_sales(), to: Sale.List, as: :call
+  defdelegate list_sales(params), to: Sale.List, as: :call
 
   defdelegate create_payroll(params), to: Payroll.Create, as: :call
   defdelegate delete_payroll(params), to: Payroll.Delete, as: :call
