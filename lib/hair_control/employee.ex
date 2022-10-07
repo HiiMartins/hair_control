@@ -13,8 +13,10 @@ defmodule HairControl.Employee do
     field :password_hash, :string
     field :password, :string, virtual: true
     field :email, :string
-    field :total_commission, :float, default: 0.0
-    field :total_received, :float, default: 0.0
+    field :total_commission, :integer, default: 0
+    field :total_received, :integer, default: 0
+    field :role, Ecto.Enum, values: [:admin, :commom], default: :commom
+    field :status, Ecto.Enum, values: [:active, :inactive], default: :active
 
     has_many :sale, Sale
     has_one :payroll, Payroll
@@ -22,8 +24,8 @@ defmodule HairControl.Employee do
     timestamps()
   end
 
-  @required_params [:name, :cpf, :password, :email]
-  @req_update_params_no_pass [:name, :cpf, :email]
+  @required_params [:name, :cpf, :password, :email, :role, :status]
+  @req_update_params_no_pass [:name, :cpf, :email, :role, :status]
   @req_total_commission [:total_commission]
   @req_total_received [:total_received]
 
