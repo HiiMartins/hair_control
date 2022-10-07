@@ -11,7 +11,9 @@ defmodule HairControlWeb.EmployeesView do
           email: email,
           total_commission: total_commission,
           total_received: total_received,
-          inserted_at: inserted_at
+          inserted_at: inserted_at,
+          role: role,
+          status: status
         },
         token: token
       }) do
@@ -24,7 +26,9 @@ defmodule HairControlWeb.EmployeesView do
         email: email,
         total_commission: total_commission,
         total_received: total_received,
-        inserted_at: inserted_at
+        inserted_at: inserted_at,
+        role: role,
+        status: status
       },
       token: token
     }
@@ -50,7 +54,9 @@ defmodule HairControlWeb.EmployeesView do
           email: email,
           total_commission: total_commission,
           total_received: total_received,
-          inserted_at: inserted_at
+          inserted_at: inserted_at,
+          role: role,
+          status: status
         }
       }) do
     %{
@@ -60,7 +66,9 @@ defmodule HairControlWeb.EmployeesView do
       email: email,
       total_commission: total_commission,
       total_received: total_received,
-      inserted_at: inserted_at
+      inserted_at: inserted_at,
+      role: role,
+      status: status
     }
   end
 
@@ -70,7 +78,9 @@ defmodule HairControlWeb.EmployeesView do
           name: name,
           cpf: cpf,
           email: email,
-          inserted_at: inserted_at
+          inserted_at: inserted_at,
+          role: role,
+          status: status
         }
       }) do
     %{
@@ -80,7 +90,9 @@ defmodule HairControlWeb.EmployeesView do
         name: name,
         cpf: cpf,
         email: email,
-        inserted_at: inserted_at
+        inserted_at: inserted_at,
+        role: role,
+        status: status
       }
     }
   end
