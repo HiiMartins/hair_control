@@ -9,7 +9,8 @@ defmodule HairControlWeb.ServicesView do
           title: title,
           price: price,
           commission_percentage: commission_percentage,
-          inserted_at: inserted_at
+          inserted_at: inserted_at,
+          status: status
         }
       }) do
     %{
@@ -19,7 +20,8 @@ defmodule HairControlWeb.ServicesView do
         title: title,
         price: price,
         commission_percentage: commission_percentage,
-        inserted_at: inserted_at
+        inserted_at: inserted_at,
+        status: status
       }
     }
   end
@@ -39,14 +41,16 @@ defmodule HairControlWeb.ServicesView do
           id: id,
           title: title,
           price: price,
-          inserted_at: inserted_at
+          inserted_at: inserted_at,
+          status: status
         }
       }) do
     %{
       id: id,
       title: title,
       price: price,
-      inserted_at: inserted_at
+      inserted_at: inserted_at,
+      status: status
     }
   end
 
@@ -55,7 +59,8 @@ defmodule HairControlWeb.ServicesView do
           id: id,
           title: title,
           price: price,
-          inserted_at: inserted_at
+          inserted_at: inserted_at,
+          status: status
         }
       }) do
     %{
@@ -64,7 +69,8 @@ defmodule HairControlWeb.ServicesView do
         id: id,
         title: title,
         price: price,
-        inserted_at: inserted_at
+        inserted_at: inserted_at,
+        status: status
       }
     }
   end

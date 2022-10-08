@@ -8,14 +8,16 @@ defmodule HairControl.Service do
 
   schema "services" do
     field :title, :string
-    field :price, :float
+    field :price, :integer
     field :commission_percentage, :integer, default: 50
+    field :status, Ecto.Enum, values: [:active, :inactive], default: :active
 
     has_many(:sale, Sale)
 
     timestamps()
   end
 
+  @cast_params [:title, :price, :status]
   @required_params [:title, :price]
 
   def build(params) do
@@ -29,7 +31,7 @@ defmodule HairControl.Service do
 
   defp create_changeset(module_or_service, params) do
     module_or_service
-    |> cast(params, @required_params)
+    |> cast(params, @cast_params)
     |> validate_required(@required_params)
   end
 end
