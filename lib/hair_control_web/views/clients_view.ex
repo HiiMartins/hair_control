@@ -10,7 +10,8 @@ defmodule HairControlWeb.ClientsView do
           cpf: cpf,
           rg: rg,
           phone: phone,
-          inserted_at: inserted_at
+          inserted_at: inserted_at,
+          status: status
         }
       }) do
     %{
@@ -21,7 +22,8 @@ defmodule HairControlWeb.ClientsView do
         phone: phone,
         cpf: cpf,
         rg: rg,
-        inserted_at: inserted_at
+        inserted_at: inserted_at,
+        status: status
       }
     }
   end
@@ -45,7 +47,8 @@ defmodule HairControlWeb.ClientsView do
           rg: rg,
           address: address,
           district: district,
-          inserted_at: inserted_at
+          inserted_at: inserted_at,
+          status: status
         }
       }) do
     %{
@@ -56,7 +59,8 @@ defmodule HairControlWeb.ClientsView do
       rg: rg,
       address: address,
       district: district,
-      inserted_at: inserted_at
+      inserted_at: inserted_at,
+      status: status
     }
   end
 
@@ -69,7 +73,8 @@ defmodule HairControlWeb.ClientsView do
           phone: phone,
           address: address,
           district: district,
-          inserted_at: inserted_at
+          inserted_at: inserted_at,
+          status: status
         }
       }) do
     %{
@@ -82,7 +87,8 @@ defmodule HairControlWeb.ClientsView do
         rg: rg,
         address: address,
         district: district,
-        inserted_at: inserted_at
+        inserted_at: inserted_at,
+        status: status
       }
     }
   end

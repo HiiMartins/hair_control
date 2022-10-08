@@ -13,14 +13,15 @@ defmodule HairControl.Client do
     field :rg, :string
     field :address, :string
     field :district, :string
+    field :status, Ecto.Enum, values: [:active, :inactive], default: :active
 
     has_many(:sale, Sale)
 
     timestamps()
   end
 
-  @params [:name, :phone, :cpf, :rg, :address, :district]
-  @required_params [:name, :phone, :cpf]
+  @params [:name, :phone, :cpf, :rg, :address, :district, :status]
+  @required_params [:name, :phone, :cpf, :rg]
 
   def build(params) do
     params
