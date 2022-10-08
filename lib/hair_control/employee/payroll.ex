@@ -6,7 +6,7 @@ defmodule HairControl.Employee.Payroll do
   @foreign_key_type Ecto.UUID
 
   schema "payroll" do
-    field :amount_paid, :float
+    field :amount_paid, :integer
 
     belongs_to :employee, HairControl.Employee
 
