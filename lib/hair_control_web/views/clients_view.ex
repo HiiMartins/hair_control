@@ -30,7 +30,7 @@ defmodule HairControlWeb.ClientsView do
 
   def render("delete.json", %{client: %Client{name: name}}) do
     %{
-      message: "The client #{name} was deleted with sucess!"
+      message: "The client #{name} was inactived with sucess!"
     }
   end
 
