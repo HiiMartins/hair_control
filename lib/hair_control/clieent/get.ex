@@ -1,5 +1,6 @@
 defmodule HairControl.Client.Get do
-  alias HairControl.{Client, Repo}
+  alias HairControl.{Client, Helper, Repo}
+  alias Helper.Verifications
   alias Ecto.UUID
 
   def call(id) do
@@ -12,7 +13,7 @@ defmodule HairControl.Client.Get do
   def get_client(uuid) do
     case Repo.get(Client, uuid) do
       nil -> {:error, "Client not found!"}
-      client -> {:ok, client}
+      client -> Verifications.verify_status(client)
     end
   end
 end
