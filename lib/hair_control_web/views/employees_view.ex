@@ -38,7 +38,7 @@ defmodule HairControlWeb.EmployeesView do
 
   def render("delete.json", %{employee: %Employee{name: name}}) do
     %{
-      message: "The Employee #{name} was deleted with sucess!"
+      message: "The Employee #{name} was inactived with sucess!"
     }
   end
 
