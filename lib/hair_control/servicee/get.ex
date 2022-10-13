@@ -1,5 +1,6 @@
 defmodule HairControl.Service.Get do
-  alias HairControl.{Service, Repo}
+  alias HairControl.{Service, Helper, Repo}
+  alias Helper.Verifications
   alias Ecto.UUID
 
   def call(id) do
@@ -12,7 +13,7 @@ defmodule HairControl.Service.Get do
   defp fetch_service(uuid) do
     case Repo.get(Service, uuid) do
       nil -> {:error, "Service not found!"}
-      service -> {:ok, service}
+      service -> Verifications.verify_status(service)
     end
   end
 end
