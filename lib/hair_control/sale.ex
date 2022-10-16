@@ -7,6 +7,7 @@ defmodule HairControl.Sale do
 
   schema "sales" do
     field :payment_method, Ecto.Enum, values: [:dinheiro, :cartão, :fiado, :pix]
+    field :status, Ecto.Enum, values: [:active, :inactive], default: :active
 
     belongs_to :employee, HairControl.Employee
     belongs_to :client, HairControl.Client
@@ -15,7 +16,7 @@ defmodule HairControl.Sale do
     timestamps()
   end
 
-  @required_params [:payment_method, :employee_id, :client_id, :service_id]
+  @required_params [:payment_method, :status, :employee_id, :client_id, :service_id]
 
   def build(params) do
     params
