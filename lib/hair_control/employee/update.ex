@@ -16,7 +16,7 @@ defmodule HairControl.Employee.Update do
           service: %Service{price: price, commission_percentage: commission_percentage}
         } = struct
       ) do
-    result_update_comission = %{update_commission: price * commission_percentage / 100}
+    result_update_comission = %{update_commission: price * commission_percentage |> div(100)}
 
     employee
     |> Employee.changeset(result_update_comission)
