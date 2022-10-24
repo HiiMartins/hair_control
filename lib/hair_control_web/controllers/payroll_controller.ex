@@ -15,7 +15,7 @@ defmodule HairControlWeb.PayrollController do
     |> handle_response(conn, "delete.json", :ok)
   end
 
-  def list(conn, _filters) do
+  def list(conn, _params) do
     HairControl.list_payroll()
     |> handle_response(conn, "list.json", :ok)
   end
