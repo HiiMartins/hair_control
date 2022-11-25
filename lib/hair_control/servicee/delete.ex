@@ -21,7 +21,7 @@ defmodule HairControl.Service.Delete do
 
   defp fetch_service({:ok, uuid}) do
     case Repo.get(Service, uuid) do
-      nil -> {:error, "Client not Found!"}
+      nil -> {:error, "Service not Found!"}
       service -> Verifications.verify_status(service)
     end
   end
