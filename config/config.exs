@@ -24,10 +24,12 @@ config :hair_control, HairControlWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :hair_control, HairControl.Mailer, adapter: Swoosh.Adapters.Local
+config :hair_control, HairControl.Mailer,
+  adapter: Swoosh.Adapters.Sendgrid,
+  api_key: System.get_env("SENDGRID_API_KEY")
 
 # Swoosh API client is needed for adapters other than SMTP.
-config :swoosh, :api_client, false
+config :swoosh, :api_client, Swoosh.ApiClient.Hackney
 
 # Configure esbuild (the version is required)
 config :esbuild,
@@ -47,10 +49,6 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-# Import environment specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
-import_config "#{config_env()}.exs"
-
 config :hair_control, HairControlWeb.Auth.Guardian,
   issuer: "hair_control",
   secret_key: "2hxAfbe9NYSFFyu1wnbfjiuxdH6crkaEhibQ4jQwWsW4FofENqWJeO48FBQmLiZX"
@@ -58,3 +56,7 @@ config :hair_control, HairControlWeb.Auth.Guardian,
 config :hair_control, HairControlWeb.Auth.Pipeline,
   module: HairControlWeb.Auth.Guardian,
   error_handler: HairControlWeb.Auth.ErrorHandler
+
+# Import environment specific config. This must remain at the bottom
+# of this file so it overrides the configuration defined above.
+import_config "#{config_env()}.exs"

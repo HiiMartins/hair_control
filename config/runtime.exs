@@ -66,7 +66,14 @@ if config_env() == :prod do
   # See `mix help release` for more information.
 
   # ## Configuring the mailer
+  #if config_env() == :prod or config_env() == :dev do
+  #  # Configuring the mailer
+  #  config :hair_control, HairControl.Mailer,
+  #    adapter: Swoosh.Adapters.Sendgrid,
+  #    api_key: System.get_env("SENDGRID_API_KEY")
   #
+  #  config :swoosh, :api_client, Swoosh.ApiClient.Hackney
+  # end
   # In production you need to configure the mailer to use a different adapter.
   # Also, you may need to configure the Swoosh API client of your choice if you
   # are not using SMTP. Here is an example of the configuration:
