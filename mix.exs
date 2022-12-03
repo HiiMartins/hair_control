@@ -43,7 +43,7 @@ defmodule HairControl.MixProject do
       {:floki, ">= 0.30.0", only: :test},
       {:phoenix_live_dashboard, "~> 0.6"},
       {:esbuild, "~> 0.3", runtime: Mix.env() == :dev},
-      {:swoosh, "~> 1.3"},
+      {:swoosh, "~> 1.8"},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.18"},
@@ -51,7 +51,8 @@ defmodule HairControl.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:argon2_elixir, "~> 3.0"},
       {:guardian, "~> 2.0"},
-      {:cors_plug, "~> 3.0"}
+      {:cors_plug, "~> 3.0"},
+      {:hackney, "~>1.9"}
     ]
   end
 
