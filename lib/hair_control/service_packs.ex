@@ -3,7 +3,7 @@ defmodule HairControl.ServicePacks do
   import Ecto.Changeset
 
   @primary_key {:id, Ecto.UUID, autogenerate: true}
-  @foreing_key_type Ecto.UUID
+  # @foreing_key_type Ecto.UUID PRECISO RESOLVER ISSO QUERIDINHO
 
   schema "service_packs" do
     field :title, :string

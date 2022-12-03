@@ -51,7 +51,7 @@ defmodule HairControlWeb.Router do
     resources "/services", ServicesController, only: [:create, :show, :delete, :update]
     get "/services", ServicesController, :list
 
-    resources "services/packs", ServicePacksController, only: [:create, :show, :delete, :update]
+    resources "/services/packs", ServicePacksController, only: [:create, :show, :delete, :update]
     get "/services/packs", ServicePacksController, :list
   end
 
