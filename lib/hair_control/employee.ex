@@ -36,7 +36,7 @@ defmodule HairControl.Employee do
   end
 
   def changeset(employee, params), do: create_changeset(employee, params)
-  defp changeset(params), do: create_changeset(%__MODULE__{}, params)
+  def changeset(params), do: create_changeset(%__MODULE__{}, params)
 
   defp create_changeset(module_or_employee, %{"password" => _password} = params) do
     module_or_employee
