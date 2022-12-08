@@ -51,7 +51,7 @@ config :phoenix, :json_library, Jason
 
 config :hair_control, HairControlWeb.Auth.Guardian,
   issuer: "hair_control",
-  secret_key: "2hxAfbe9NYSFFyu1wnbfjiuxdH6crkaEhibQ4jQwWsW4FofENqWJeO48FBQmLiZX"
+  secret_key: System.get_env("SECRET_KEY")
 
 config :hair_control, HairControlWeb.Auth.Pipeline,
   module: HairControlWeb.Auth.Guardian,

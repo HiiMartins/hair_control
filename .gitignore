@@ -32,3 +32,5 @@ hair_control-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# In case use API key as an environment variable
+.env
